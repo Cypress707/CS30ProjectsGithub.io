@@ -30,17 +30,24 @@ function draw() {
   text("Ryder Taylor",320, 178)
 
 
- if (light1 = 0){
-  if (keyIsPressed){
-    if (star1 === 0){
-      star1 = 5, star2 = 5, star3 = 5, star4 = 5, star5 = 5
+  let starCount = 0;
+  if (light1 === 0){
+    if (keyIsPressed){
+      let y = 0
+      let x = 0
+    if (x === 0){
+    let x = random(0, width);
     }
-    else (star1 = 0, star2 = 0, star3 = 0, star4 = 0, star5 = 0)
-    stars1 = (randomNumber(181)), stars2 = (randomNumber(181)), stars3 = (randomNumber(181)), stars4 = (randomNumber(181)), stars5 = (randomNumber(181))
-  }
-  }
+    circle(x, 0, 2);
+    while (y < 180, x < 350){
+      y = y += 5
+      x = x += 5
+    }
+    x = 0
+    y = 0
 
- 
+    }
+  }
   fill(moon1, moon2, moon3);
   ellipse(run,rise,50, 50, 42, 4);
   noStroke();
