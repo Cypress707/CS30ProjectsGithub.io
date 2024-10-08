@@ -6,8 +6,10 @@
 // - describe what you did to take this project "above and beyond"
 
 let rTime1 = 5
-let rInterval = 0.02
+let rInterval = 0.01
 let rWidth = 1
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
@@ -15,42 +17,41 @@ function setup() {
 
 function draw() {
   background(135,206,255);
-
-
+  fill(255,255,255);
+  //to make the landscape
   mountainRange();
  
-  //makeFlag(flagx, maxY);
+  
+
 }
-//function makeFlag(){
- // fill(0,0,0);
- // triangle(xFlag, fHeight += 15, x += 15, fHeight += 10, xFlag, fHeight += 5);
- // if(rectHeight > flagHeight){
- //   let xFlag = x;
- //   let flagHeight = rectHeight;
-  //}
-//}
 
 function mountainRange(){
 
   
   let maxY = 0
   let rTime = rTime1
+
   for(let x = 0; x < width; x += rWidth){
-  fill(0,0,0);
+
+  //making the landscape
   let rectHeight = noise(rTime);
   rectHeight = map(rectHeight,0, 1, 50, 500);
-
+  //making the rectangles
+  fill(0);
   rect(x, height, rWidth, -rectHeight)
-
+  //going to the next rectangle
   rTime += rInterval;
+  //finding the max height
   if(rectHeight > maxY){
     flagx = x;
     maxY = rectHeight;
   }
   }
-  makeFlag(flagx, maxY);
+  //flag making function
+  makeFlag(flagx, height - maxY);
+  
 }
-
+//changing the rectangle width
 function keyPressed(){
   if(key === "a"){
     if(rWidth > 1){
@@ -63,20 +64,10 @@ function keyPressed(){
     }
   }
 }
-
+//making the flag
 function makeFlag(x,y){
-  fill(0,0,0);
-  triangle(x,y + 12.5, x + 10, y + 6.25, x, y);
-  line(x, y, x, y);
+  fill(255,255,255);
+  triangle(x,y - 42.5, x + 10, y - 35, x, y - 27.5);
+  line(x, y - 42.5, x, y);
   print(x,y,height)
-}
-
-function clouds(){
-  for(let i = 0; i < width; i += 1){
-    let cloudY = noise(rTime);
-    cloudY = map(cloudY, 0, 1, 50, 100)
-  }
-  
-  fill(255,255,255)
-  circle()
 }
