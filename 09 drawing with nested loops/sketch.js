@@ -1,0 +1,50 @@
+// drawing with nested loops
+// Ryder Taylor
+// Oct 9th 2024
+
+
+//Global Variables
+let gridSpacing = 30;
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+}
+
+
+function loopReview(){
+  //quickly recap single and nested loops
+  for(let x = 0; x <= 400; x = x+20){ //0,20,40
+    for(let y = 0; y <= 140; y += 20){
+      square(x,y,10);
+    }
+  }
+
+}
+function draw() {
+  background(220);
+  renderGrid();
+}
+
+function roundDist(x1, y1, x2, y2){
+  //takes 2 coordinate pairs and returns the dist between but rounded
+  let a = abs(x1 - x2);
+  let b = abs(y1 - y2); 
+  let c = sqrt(sq(a) + sq(b));
+  return round(c);
+}
+
+function renderGrid(){
+  //use nested loop to draw objects in a grid arrangement
+  //let Griddy = noise(gridSpacing);
+  //Griddy = map(Griddy, 0, 1, 50, 500);
+  for(let x = 0; x < width; x += gridSpacing){
+    for(let y = 0; y < height; y += gridSpacing){
+      let d = roundDist(x,y,mouseX,mouseY);
+      if(d > 50) fill(0);
+      else fill(150,30,67);
+      circle(x,y,gridSpacing);
+      fill(255,100);
+      textAlign(CENTER,CENTER);
+      text(d, x,y);
+    }
+  }
+}
