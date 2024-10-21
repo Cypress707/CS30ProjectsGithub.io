@@ -26,19 +26,20 @@ function drawingCircles(){
     }
   }
   if(x === width, y === 0){
-   for(let y = 0; y < height; y += 100){
-    fill(0)
-    circle(x,y,50);
-    //stroke(19,20,80)
-    //strokeWeight(1);
-    line(x,y,mouseX,mouseY);
+    for(let y = 0; y < height; y += 100){
+      fill(0);
+      circle(x,y,50);
+      //stroke(19,20,80)
+      //strokeWeight(1);
+      line(x,y,mouseX,mouseY);
     }
   }
   
-    for(let x = width; x > 0; x += 100){
-      circle(x,y,50);
-      line(x,y,mouseX,mouseY);
-    }
+  for(let x = width; x > 0; x += 100){
+    y = height;
+    circle(x,y,50);
+    line(x,y,mouseX,mouseY);
+  }
   
   if(x === 0, y === 0){
     for(let x = 0; x < width; x += 100){
