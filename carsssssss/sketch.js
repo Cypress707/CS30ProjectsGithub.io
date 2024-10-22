@@ -42,6 +42,9 @@ class Vehicle{
   constructor(x,y){
     this.x = x;
     this.y = y;
+    this.c1 = (random(255));
+    this.c2 = (random(255));
+    this.c3 = (random(255));
     this.s = 5;
     this.v = [];
     this.side = 0;
@@ -49,9 +52,18 @@ class Vehicle{
     this.w = [];
   }
   createVehicle(){
-    if(this.e.length < 20){
-      this.e.push(new Vehicle(this.x,this.y));
-    } 
+    //let randoRam = random(1,2);
+    //randoRam = Math.round(randoRam);
+    //print(randoRam);
+    //if(randoRam === 1){
+      //if(this.e.length < 20){
+        //this.y === random(300,400);
+        //this.x === 0;
+        
+        this.e.push(new Vehicle(this.x,this.y));
+        print(this.e.length);
+      //}
+    //} 
     //this.side = random(0,2);
     //if(this.side === 1){
       //let lane = random(1,2);
@@ -71,25 +83,25 @@ class Vehicle{
 
   //}
   display(){
-    let c1 = random(1,255);
-    let c2 = random(1,255);
-    let c3 = random(1,255);
-    fill(c1,c2,c3);
+    
+    fill(this.c1,this.c2,this.c3);
     rectMode(CENTER);
     rect(this.x,this.y,80,40);
     print(this.x,this.y);
-    this.update();
+    print(this.v);
+    this.move();
+    
   }
-  update(){
-    let ranRan = random(100);
+  move(){
+    //let ranRan = random(100);
     //print(ranRan);
-    if(ranRan === 50){
-      this.s = this.s *= random(-3,3);
-    }
-    print(this.x,this.s);
+    //if(ranRan === 50){
+   //   this.s = this.s *= random(-3,3);
+   // }
+   // print(this.x,this.s);
     this.x += this.s;
     if(this.x >= width){
-      this.e.pop;
+      this.x = 0;
     }
   }
 }
